@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import html2canvas  from 'html2canvas';
 
 function App() {
 
@@ -19,6 +20,13 @@ function App() {
     return setEquipo(evento.target.value)
   }
 
+  const onClickExportarImage = (evento) => {
+    html2canvas(document.querySelector("#equipoFutbol")).then(canvas => {
+      document.body.appendChild(canvas)
+    });
+    return alert("PROBANDO LA EXPORTACIÓN")
+  }
+
   return (
     <div className='App'>
      <h1>Seleccione el equipo de fútbol peruano de su preferencia:</h1> 
@@ -32,9 +40,9 @@ function App() {
      <br/>
      <input onChange={onChangeLinea1} type="text" placeholder='Linea 1'/> <br/>
      <input onChange={onChangeLinea2} type="text" placeholder='Linea 2'/> <br/>
-     <button>Exportar</button>
+     <button onClick={onClickExportarImage} >Exportar</button>
 
-     <div className='estilosMeme'>
+     <div className='estilosMeme' id='equipoFutbol'>
        <span> {linea1} </span> <br/>
        <span> {linea2} </span>
        <img src= {"img/" + equipo + ".png"} ></img>
