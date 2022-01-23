@@ -22,9 +22,13 @@ function App() {
 
   const onClickExportarImage = (evento) => {
     html2canvas(document.querySelector("#equipoFutbol")).then(canvas => {
-      document.body.appendChild(canvas)
+      var img = canvas.toDataURL("image/png");
+      var link = document.createElement("a");
+      link.download = "equipo.png";
+      link.href = img;
+      link.click();
     });
-    return alert("PROBANDO LA EXPORTACIÓN")
+    return alert("Se descargó la imagen correctamente")
   }
 
   return (
