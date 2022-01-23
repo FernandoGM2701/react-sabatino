@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.estilosMeme span{
+  position: absolute;
+  margin-top: 40px;
+  font-size: 36px;
+  color: green;
+  text-shadow: 0 0 20px black;
+  width: 100%;
+  left: 0px;
+}
+
+.estilosMeme span:nth-child(1){
+  margin-top: 300px;
+}
+
+.estilosMeme img{
+  width: 100%;
+}
